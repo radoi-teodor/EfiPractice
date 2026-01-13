@@ -1,7 +1,7 @@
 #include "graphics_helper.h"
 
 // variabila care va retine handle carte GOP
-extern EFI_GRAPHICS_OUTPUT_PROTOCOL *mGop = NULL;
+EFI_GRAPHICS_OUTPUT_PROTOCOL *mGop = NULL;
 
 // generic
 

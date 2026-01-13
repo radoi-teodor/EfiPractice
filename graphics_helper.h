@@ -3,7 +3,7 @@
 #include <Library/UefiBootServicesTableLib.h>
 
 // variabila care va retine handle carte GOP
-EFI_GRAPHICS_OUTPUT_PROTOCOL *mGop;
+extern EFI_GRAPHICS_OUTPUT_PROTOCOL *mGop;
 
 // generic
 EFI_STATUS LocateGop();

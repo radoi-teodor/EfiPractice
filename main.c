@@ -72,7 +72,12 @@ UefiMain (
 
 
   // initializam meniul
-  status = InitMenu();
+  status = InitMenu(3);
+
+  // setal meniul - item 1
+  InitMenuItem(0, "Title 1", "Desc 1");
+  InitMenuItem(1, "Title 2", "Desc 2");
+  InitMenuItem(2, "Title 3", "Desc 3");
 
   // error handle
   if (EFI_ERROR(status)) {
@@ -105,6 +110,18 @@ UefiMain (
         if (key.ScanCode == SCAN_ESC) { // daca user-ul a apasat ESC,
           running = FALSE;              // oprim executia
         }
+
+        if (key.ScanCode == SCAN_LEFT){
+          if(selectedTabIdx==0){
+            selectedTabIdx = 2;
+          }else{
+            selectedTabIdx -=1;
+          }
+        }
+
+        if (key.ScanCode == SCAN_RIGHT){
+          selectedTabIdx = (selectedTabIdx + 1) % tabNumber;
+        }
       }
     }
     
@@ -115,7 +132,7 @@ UefiMain (
     FillRect(0, 0, ScreenW, ScreenH, bg);
 
     // desenam
-    
+    DisplayMenu(ScreenW, ScreenH);
 
   }
 
