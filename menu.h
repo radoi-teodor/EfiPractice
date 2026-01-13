@@ -1,4 +1,5 @@
 #include <Uefi.h>
+#include <Library/PrintLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include "graphics_helper.h"
 

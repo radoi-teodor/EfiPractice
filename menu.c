@@ -24,7 +24,6 @@ EFI_STATUS InitMenu(int targetTabNumber){
     }
 
     for(int i = 0; i < tabNumber; i++){
-
         // alocam pentru titlu
         gBS->AllocatePool(
             EfiLoaderData,
@@ -40,7 +39,6 @@ EFI_STATUS InitMenu(int targetTabNumber){
         );
 
     }
-
 
     // definim by default tabul selectat cu primul item
     if(targetTabNumber>0){
@@ -83,7 +81,14 @@ VOID DisplayMenu(UINT32 screenW, UINT32 screenH){
         }else{
             FillRect(i*upperItemUnit, 0, upperItemUnit, 50, butColor);
         }
+
     }
+
+    // setam pozitia la 0, 0
+    SetCursorPos(0,0);
+    AsciiPrint(tabs[selectedTabIdx].title); // afisam titlul
+    AsciiPrint("\n");
+    AsciiPrint(tabs[selectedTabIdx].description); // afisam descrierea
 }
 
 // va elibera memoria meniului

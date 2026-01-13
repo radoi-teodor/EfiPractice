@@ -2,6 +2,10 @@
 
 // variabila care va retine handle carte GOP
 EFI_GRAPHICS_OUTPUT_PROTOCOL *mGop = NULL;
+int colNumber = 0;
+int rowNumber = 0;
+int dispX = 0;
+int dispY = 0;
 
 // generic
 

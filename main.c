@@ -27,9 +27,15 @@ UefiMain (
   // preluam rezolutia ecranului
   // preluam latimea in pixeli
   UINT32 ScreenW = mGop->Mode->Info->HorizontalResolution;
+  dispX = ScreenW;
   // repluam lungimea in pixeli
   UINT32 ScreenH = mGop->Mode->Info->VerticalResolution;
+  dispY = ScreenH;
 
+  // preluam cate coloane avem
+  colNumber = mGop->Mode->Info->HorizontalResolution; // preluam cate coloane are ecranul
+  rowNumber = mGop->Mode->Info->VerticalResolution;   // preluam cate randuri are ecranul
+  
   /*
   vom pregati aplicatia pentru 60 FPS
   60 FPS: 1/60 sec = 16.666 ms => 166666 * 100ns
