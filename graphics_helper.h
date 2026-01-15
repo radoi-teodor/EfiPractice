@@ -4,8 +4,8 @@
 
 // variabila care va retine handle carte GOP
 extern EFI_GRAPHICS_OUTPUT_PROTOCOL *mGop;
-extern int colNumber;
-extern int rowNumber;
+extern UINTN colNumber;
+extern UINTN rowNumber;
 extern int dispX; // rezolutia X
 extern int dispY; // rezolutia Y
 

@@ -33,9 +33,14 @@ UefiMain (
   dispY = ScreenH;
 
   // preluam cate coloane avem
-  colNumber = mGop->Mode->Info->HorizontalResolution; // preluam cate coloane are ecranul
-  rowNumber = mGop->Mode->Info->VerticalResolution;   // preluam cate randuri are ecranul
-  
+  colNumber = 0; // preluam cate coloane are ecranul
+  rowNumber = 0;   // preluam cate randuri are ecranul
+  status = gST->ConOut->QueryMode(gST->ConOut, gST->ConOut->Mode->Mode, &colNumber, &rowNumber);
+  if(EFI_ERROR(status)){
+    Print(L"[!] Could not get rows and columns\n");
+    return status;
+  }
+
   /*
   vom pregati aplicatia pentru 60 FPS
   60 FPS: 1/60 sec = 16.666 ms => 166666 * 100ns
